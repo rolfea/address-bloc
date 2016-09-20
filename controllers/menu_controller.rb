@@ -62,11 +62,19 @@ class MenuController
     puts "New AddressBloc Entry"
     print "Name: "
     name = gets.chomp
+    if name.nil? || name.size == 0
+      raise TypeError.new('Name cannot be nil or empty.')
+    end
     print "Phone number: "
     phone = gets.chomp
+    if phone.length < 7 || phone.nil?
+      raise TypeError.new('Phone number must be at least 7 digits and cannot be nil.')
+    end
     print "Email: "
     email = gets.chomp
-
+    if email.nil? || email.size == 0
+      raise TypeError.new('Email cannot be nil or empty')
+    end
     @address_book.add_entry(name, phone, email)
 
     system "clear"
