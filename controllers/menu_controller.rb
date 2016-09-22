@@ -103,7 +103,7 @@ class MenuController
       puts "No CSV file read"
       main_menu
     end
-
+    
     begin
       entry_count = address_book.import_from_csv(file_name).count
       system "clear"

@@ -10,7 +10,8 @@ class AddressBook < BlocRecord::Base
   end
 
   def import_from_csv(file_name)
-    # Implementation goes here
+    # somehow access CLI interface of sqlite3
+    # call .mode CSV, then .import file_name table
     csv_text = File.read(file_name)
     csv = CSV.parse(csv_text, headers: true, skip_blanks: true)
     csv.each do |row|
