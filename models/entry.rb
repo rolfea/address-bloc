@@ -6,7 +6,11 @@ class Entry < BlocRecord::Base
     "Name: #{name}\nPhone Number: #{phone_number}\nEmail: #{email}"
   end
 
-  def method_missing(method, *args, &block)
-    
+  def self.method_missing(method, *args, &block)
+    # turn the method symbol into a string
+    method.to_s
+    # regex to pull anything after find_by_ off
+    # set anything pulled off of it to variables
+    Entry.find_by(:var, var)
   end
 end
