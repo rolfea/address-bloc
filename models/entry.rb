@@ -7,10 +7,15 @@ class Entry < BlocRecord::Base
   end
 
   def self.method_missing(method, *args, &block)
+    value_and_parameter = ""
+    value = ""
+    parameter = ""
     # turn the method symbol into a string
     method.to_s
-    # regex to pull anything after find_by_ off
-    # set anything pulled off of it to variables
-    Entry.find_by(:var, var)
+    method.match(/^find_by_(.*)$/) { |match| value_and_parameter = match }
+    value_and_parameter.match(/^\w*/) { |match| value = match }
+    value_and_parameter.match(/"(\w*)/) { |match| parameter = match }
+    # set anything pulled off after by_ it to variables
+    Entry.find_by(:value, parameter)
   end
 end
