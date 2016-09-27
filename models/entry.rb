@@ -11,8 +11,10 @@ class Entry < BlocRecord::Base
     value = ""
     parameter = ""
     # turn the method symbol into a string
-    method.to_s
-    method.match(/^find_by_(.*)$/) { |match| value_and_parameter = match }
+    method_name = method.to_s
+    # pulls of material after "find_by"
+    method_name.match(/^find_by_(.*)$/) { |match| value_and_parameter = match }
+    # sets into separate variables
     value_and_parameter.match(/^\w*/) { |match| value = match }
     value_and_parameter.match(/"(\w*)/) { |match| parameter = match }
     # set anything pulled off after by_ it to variables
