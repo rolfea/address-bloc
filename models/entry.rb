@@ -1,4 +1,4 @@
-require 'bloc_record/base'
+require_relative '../../bloc-record/lib/bloc_record/base.rb'
 
 class Entry < BlocRecord::Base
 
@@ -18,6 +18,6 @@ class Entry < BlocRecord::Base
     value_and_parameter.match(/^\w*/) { |match| value = match }
     value_and_parameter.match(/"(\w*)/) { |match| parameter = match }
     # set anything pulled off after by_ it to variables
-    Entry.find_by(:value, parameter)
+    # Entry.find_by(:value, parameter)
   end
 end

@@ -1,5 +1,5 @@
 require_relative 'controllers/menu_controller'
-require 'bloc_record'
+require_relative '../bloc-record/lib/bloc_record.rb'
 
 BlocRecord.connect_to("db/address_bloc.sqlite")
 

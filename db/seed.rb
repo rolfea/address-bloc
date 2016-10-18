@@ -1,8 +1,8 @@
 require_relative '../models/address_book'
 require_relative '../models/entry'
-require 'bloc_record'
+require_relative '../../bloc-record/lib/bloc_record.rb'
 
-BlocRecord.connect_to('db/address_bloc.sqlite')
+BlocRecord.connect_to('address_bloc.sqlite')
 
 book = AddressBook.create(name: 'My Address Book')
 

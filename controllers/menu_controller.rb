@@ -8,14 +8,15 @@ class MenuController
   end
 
   def main_menu
-    puts "Main Menu - #{address_book.entries.count} entries"
-    puts "#{address_book.name} Address Book Selected\n#{@address_book.entries.count} entries"
+    # puts "Main Menu - #{AddressBook.find([]).count} entries"
+    # puts "#{address_book.name} Address Book Selected\n#{@address_book.entries.count} entries"
     puts "0 - Switch AddressBook"
     puts "1 - View all entries"
     puts "2 - Create an entry"
     puts "3 - Search for an entry"
     puts "4 - Import entries from a CSV"
     puts "5 - Exit"
+    puts "6 - Test"
     print "Enter your selection: "
 
     selection = gets.to_i
@@ -44,6 +45,9 @@ class MenuController
       when 5
         puts "Good-bye!"
         exit(0)
+      when 6
+        puts @address_book.entries.nil?
+        main_menu
       else
         system "clear"
         puts "Sorry, that is not a valid input"
@@ -95,6 +99,7 @@ class MenuController
     if email.nil? || email.size == 0
       raise TypeError.new('Email cannot be nil or empty')
     end
+
     @address_book.add_entry(name, phone, email)
 
     system "clear"

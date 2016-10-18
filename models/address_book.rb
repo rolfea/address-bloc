@@ -1,12 +1,12 @@
 require_relative 'entry'
 require "csv"
-require 'bloc_record/base'
+require_relative '../../bloc-record/lib/bloc_record/base.rb'
 require 'sqlite3'
 
 class AddressBook < BlocRecord::Base
 
   def add_entry(name, phone_number, email)
-    Entry.create(name: name, phone_number: phone, email: email)
+    Entry.create(name: name, phone_number: phone_number, email: email)
   end
 
   def entries
