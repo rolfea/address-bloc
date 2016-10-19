@@ -46,7 +46,8 @@ class MenuController
         puts "Good-bye!"
         exit(0)
       when 6
-        puts @address_book.entries.nil?
+        last = AddressBook.last.entries
+        puts last
         main_menu
       else
         system "clear"
@@ -109,7 +110,8 @@ class MenuController
   def search_entries
     print "Search by name: "
     name = gets.chomp
-    match = @address_book.find_by(name)
+    # improper call to this method
+    match = @address_book.find_entry(name)
     system "clear"
     if match
       puts match.to_s

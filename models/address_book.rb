@@ -4,9 +4,9 @@ require_relative '../../bloc-record/lib/bloc_record/base.rb'
 require 'sqlite3'
 
 class AddressBook < BlocRecord::Base
-
-  def add_entry(name, phone_number, email)
-    Entry.create(name: name, phone_number: phone_number, email: email)
+  # just hard coding the address_book_id in for the moment
+  def add_entry(address_book_id=2, name, phone_number, email)
+    Entry.create(address_book_id: address_book_id, name: name, phone_number: phone_number, email: email)
   end
 
   def entries
