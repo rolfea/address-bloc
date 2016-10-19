@@ -59,7 +59,7 @@ class MenuController
   def select_address_book_menu
     puts "Select an Address Book:"
     AddressBook.all.each_with_index do |address_book, index|
-        puts "#{index} - #{address_book.name}"
+        puts "#{index + 1} - #{address_book.name}"
     end
 
     index = gets.chomp.to_i
