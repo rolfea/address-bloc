@@ -1,4 +1,5 @@
 require_relative '../models/address_book'
+require_relative '../models/entry'
 
 class MenuController
   attr_reader :address_book
@@ -46,8 +47,14 @@ class MenuController
         puts "Good-bye!"
         exit(0)
       when 6
-        last = AddressBook.last.entries
-        puts last
+        # just_select = Entry.select(:name, :email)
+        # distinct_select = Entry.select(:name, :email).distinct
+        Entry.select(:name, :email).distinct
+        # puts "------------"
+        # puts just_select[0..5]
+        # puts '------------'
+        # puts distinct_select[0..5]
+        # puts '------------'
         main_menu
       else
         system "clear"
