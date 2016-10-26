@@ -47,14 +47,11 @@ class MenuController
         puts "Good-bye!"
         exit(0)
       when 6
-        # just_select = Entry.select(:name, :email)
-        # distinct_select = Entry.select(:name, :email).distinct
-        Entry.select(:name, :email).distinct
-        # puts "------------"
-        # puts just_select[0..5]
-        # puts '------------'
-        # puts distinct_select[0..5]
-        # puts '------------'
+        distinct_select = Entry.select(:name, :phone_number, :email).distinct
+        regular_select = Entry.select(:name, :phone_number, :email)
+        puts distinct_select
+        puts '==='
+        puts regular_select
         main_menu
       else
         system "clear"

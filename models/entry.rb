@@ -20,4 +20,17 @@ class Entry < BlocRecord::Base
     # set anything pulled off after by_ it to variables
     # Entry.find_by(:value, parameter)
   end
+
+  def ==(other_entry)
+    return nil if other_entry.nil?
+    entries_equal = true
+
+    self.class.columns.each do |property|
+      self_property = self.method("#{property}")
+      other_property = other_entry.method("#{property}")
+
+      entries_equal = false unless self_property.call == other_property.call
+    end
+    entries_equal
+  end
 end
