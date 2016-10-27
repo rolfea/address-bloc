@@ -47,10 +47,7 @@ class MenuController
         puts "Good-bye!"
         exit(0)
       when 6
-        distinct_select = Entry.select(:name, :phone_number, :email).distinct
-        regular_select = Entry.select(:name, :phone_number, :email)
-        puts distinct_select
-        puts '==='
+        regular_select = Entry.select(:name, :phone_number, :email, :dog)
         puts regular_select
         main_menu
       else
