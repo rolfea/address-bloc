@@ -47,7 +47,7 @@ class MenuController
         puts "Good-bye!"
         exit(0)
       when 6
-        regular_select = Entry.select(:name, :phone_number, :email, :dog)
+        regular_select = Entry.select(:name, :phone_number, :email)
         puts regular_select
         main_menu
       else
