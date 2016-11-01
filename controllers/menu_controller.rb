@@ -48,7 +48,9 @@ class MenuController
         exit(0)
       when 6
         regular_select = Entry.select(:name, :phone_number, :email)
+        distinct_select = Entry.select(:name, :phone_number, :email).distinct
         puts regular_select
+        puts distinct_select
         main_menu
       else
         system "clear"
